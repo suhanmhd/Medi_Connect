@@ -1,0 +1,68 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: API-GATEWAY
+#  config:
+#    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "https://mediconnects.netlify.app"
+              - "http://localhost:3000"
+           
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+#          '/auth/token':
+#            allowedOrigins: "http://localhost:3000"
+#            allowedHeaders: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - OPTIONS
+
+      routes:
+#        - id: ADMIN-SERVICE
+#          uri: lb://ADMIN-SERVICE
+#          predicates:
+#            - Path=/admin/**
+#          filters:
+#            - AuthenticationFilter
+
+        - id: AUTH-SERVICE
+          uri: http://43.204.119.129:8080
+          predicates:
+            - Path=/auth/**
+
+        - id: APPOINTMENT-SERVICE
+          uri: http://43.204.119.129:8088
+          predicates:
+            - Path=/appointment/**
+
+
+        - id: USER-SERVICE
+          uri: http://13.202.12.178:8084
+          predicates:
+             - Path=/user/**
+
+
+
+          filters:
+            - AuthenticationFilter
+
+
+#
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://13.202.12.178:8761/eureka}

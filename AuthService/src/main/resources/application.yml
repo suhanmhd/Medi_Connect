@@ -1,0 +1,60 @@
+#server:
+#  port: 8080
+#
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/mediconnectauth
+#    username: root
+#    password: sh98@sh98
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://ls-dadd6ea104784a8dd6f671234507d639f605d304.cz3el1yeom5t.ap-south-1.rds.amazonaws.com:3306/mediconnectauth
+#    username: dbmasteruser
+#    password: mediconnect98
+##    driver-class-name: com.mysql.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    generate-ddl: true
+#    show-sql: true
+#  application:
+#    name: AUTH-SERVICE
+#
+#
+#
+#  config:
+#    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+#  profiles:
+#    active: test
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-21ea9185-suhanmuhammed4-ea38.l.aivencloud.com:15753/mediconnectauth?createDatabaseIfNotExist=true
+    username: avnadmin
+    password: AVNS_VhVWue27w5HhH7NGdt1
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  application:
+    name: AUTH-SERVICE
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://13.202.12.178:8761/eureka}
+
+
+
+
+#  config:
+#    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+#  profiles:
+#    active: test
+
