@@ -8,7 +8,7 @@ spring:
 #    password: sh98@sh98
     url: jdbc:mysql://mysql-21ea9185-suhanmuhammed4-ea38.l.aivencloud.com:15753/mediconnectappointment?createDatabaseIfNotExist=true
     username: avnadmin
-    password: AVNS_VhVWue27w5HhH7NGdt1
+#    password: AVNS_VhVWue27w5HhH7NGdt1
 #    url: jdbc:mysql://ls-dadd6ea104784a8dd6f671234507d639f605d304.cz3el1yeom5t.ap-south-1.rds.amazonaws.com:3306/mediconnectappointment
 #    username: dbmasteruser
 #    password: mediconnect98
